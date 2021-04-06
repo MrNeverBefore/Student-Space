@@ -1,51 +1,66 @@
-const express= require("express")
-const bodyParser= require("body-parser");
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+const methodOverride = require('method-override')
 
+const app = express();
 
-const app=express();
-app.set('view engine','ejs')
+// Passport Config
+require('./config/passport')(passport);
 
+// DB Config
+const db = require('./config/keys').mongoURI;
 
-app.use(bodyParser.urlencoded({extended:true}));
+// Connect to MongoDB
+mongoose
+  .connect(
+    db,
+    { useNewUrlParser: true ,useUnifiedTopology: true}
+  )
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
+  mongoose.set('useCreateIndex', true);
+
+// EJS
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
+// Express body parser
+app.use(express.urlencoded({ extended: true }));
 
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get("/",function(req,res){
-    res.render("login")
-})
-app.post("/",function(req,res){
+// Connect flash
+app.use(flash());
 
-    res.redirect("/dashboard");
-    
-})
-
-
-app.get("/dashboard",function(req,res){
-    res.render("dashboard");
-})
-
-
-app.get("/resource",function(req,res){
-    res.render("resource");
-})
-
-
-app.get("/timetable",function(req,res){
-    res.render("timetable");
-})
-
-
-app.get("/acedmics",function(req,res){
-    res.render("academics");
-})
-
-
-app.get("/announcement",function(req,res){
-    res.render("announcement");
-})
-
-app.listen(3000,function(){
-    console.log("sever started att port 3000")
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
 });
+app.use(methodOverride('_method'))
+
+// Routes
+app.use('/', require('./routes/index.js'));
+app.use('/users', require('./routes/users.js'));
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, console.log(`Server running on  ${PORT}`));
