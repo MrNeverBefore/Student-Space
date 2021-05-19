@@ -1,0 +1,167 @@
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i> Register Student
+      </h1>
+      <%- include ./partials/messages %>
+      <form action="/users/register" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="name"
+            id="name"
+            name="name"
+            class="form-control"
+            placeholder="Enter Name"
+            value="<%= typeof name != 'undefined' ? name : '' %>"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="email">ID</label>
+          <input
+            type="text"
+            id="ID"
+            name="ID"
+            class="form-control"
+            placeholder="Enter ID"
+            value="<%= typeof ID != 'undefined' ? ID : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Gender</label>
+          <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="email">Father's Name</label>
+          <input
+            type="text"
+            id="fatherName"
+            name="fatherName"
+            class="form-control"
+            placeholder="Enter Father's name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Department</label>
+          <select name="department">
+            <option value="CSE">Computer Science</option>
+            <option value="ECE">Electronics & Communication</option>
+            <option value="EEE">Electrical</option>
+            <option value="ME">Mechanical</option>
+            <option value="CE">Civil</option>
+            <option value="AUE">Automobiles</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Session</label>
+          
+            <input
+            type="text"
+            id="sessionFrom"
+            name="sessionFrom"
+            class="form-control"
+            placeholder="From"
+            
+          />
+          <input
+            type="text"
+            id="sessionTo"
+            name="sessionTo"      
+            class="form-control"
+            placeholder="To"
+            
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Registration No.</label>
+          <input
+            type="text"
+            id="regNo"
+            name="regNo"
+            class="form-control"
+            placeholder="Enter Registration No."
+            value="<%= typeof regNo != 'undefined' ? regNo : '' %>"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Roll No.</label>
+          <input
+            type="text"
+            id="rollNo"
+            name="rollNo"
+            class="form-control"
+            placeholder="Enter Roll No."
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Semester :</label>
+          <input
+            type="text"
+            id="sem"
+            name="sem"
+            
+            placeholder="sem"
+          />
+          
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email."
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Phone No.</label>
+          <input
+            type="text"
+            id="phoneNo"
+            name="phoneNo"
+            class="form-control"
+            placeholder="Enter Phone No."
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="form-control"
+            placeholder="Confirm Password"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Register
+        </button>
+      </form>
+      <p class="lead mt-4"><a href="/users/welcome">Back</a></p>
+    </div>
+  </div>
+</div>

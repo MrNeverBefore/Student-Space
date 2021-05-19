@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+
+
+  
+    <link href="CSS/vanillaCalendar.css" rel="stylesheet">
+
+
+
+ <!-- -------------------------------------Chart Link    =====================================  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+
+    <title>DSCSDEC</title>
+</head>
+
+<body id="body-pd">
+
+    <!-- ================================================Header of the dashboard ------------------------------------->
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+            <span>Dashboard</span>
+        </div>
+
+        <div class="header__img" title="UserName">
+            <img src="images/pic.JPG" alt="">
+
+        </div>
+
+    </header>
+    <!------------------------------------------------------- Header End ---------------------------------------------->
+
+    <!-- --------------------------------------------------Nav Bar ------------------------------------------------------>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="/" class="nav__logo" title="Dr. Sudhir Chandra Sur Degree Engineering College">
+                    <img src="images/logo.jpeg" class="main-logo">
+                    <span class="nav__logo-name">DSCSDEC</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="/dashboard" class="nav__link active" title="Dashboard" type="submit">
+                        <i class='bx bx-home nav__icon'></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+
+                    <a href="/resource" class="nav__link" title="Resources">
+                        <i class='bx bx-book nav__icon'></i>
+                        <span class="nav__name">Resources</span>
+                    </a>
+
+                    <a href="/announcements" class="nav__link" title="Announcemnets">
+                        <i class='bx bx-notification nav__icon'></i>
+                        <span class="nav__name">Announcemnets</span>
+                    </a>
+
+                    <a href="/acedmics" class="nav__link" title="Acedmics">
+                        <i class='bx bx-book-reader nav__icon'></i>
+                        <span class="nav__name">Acedmics</span>
+                    </a>
+
+                    <a href="/articles" class="nav__link" title="Articles">
+                        <i class='bx bx-book-content nav__icon'></i>
+                        <span class="nav__name">Articles</span>
+                    </a>
+
+                    <!-- <a href="#" class="nav__link" title="Profile">
+                        <i class='bx bx-user nav__icon'></i>
+                        <span class="nav__name">Profile</span>
+                    </a> -->
+                </div>
+            </div>
+
+            <a href="/users/logout" class="nav__link" title="Log Out">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+    <!-- ----------------------------------------------End Nav Bar --------------------------------------------------------->
+
+
+    <div class="main-frame">
+        <div class="main">
+
+            <main class="content">
+                <div class="container-fluid p-0">
+                    <div class="row mb-2 mb-xl-3">
+                        
+                        <div class="col-auto d-none d-sm-block">
+                            <h3>Dashboard</h3>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-xxl-5 d-flex">
+                            <div class="w-100">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Attendence</h5>
+                                                <h2 class="mt-1 mb-3">87</h2>
+                                                <div class="mb-1">
+                                                    <span class="text-muted">Till August</span><br>
+                                                    <span class="text-danger"> <i
+                                                            class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
+                                                    <span class="text-muted">Since last Month</span>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Name</h5>
+                                                <h1 class="mt-1 mb-3"><%= user.name %></h1>
+                                                <div class="mb-1">
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Current Semester</h5>
+                                                <h3 class="mt-1 mb-3"><%= user.sem %></h3>
+                                                <div class="mb-1">
+                                                    <span class="text-success"></span>
+                                                    <span class="text-muted">4th Year</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Department</h5>
+                                                <h2 class="mt-1 mb-3"><%= user.department %></h2>
+                                                <div class="mb-1">
+                                                    <span class="text-success"></span>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        
+                                        
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Student ID</h5>
+                                                <h3 class="mt-1 mb-3"><%= user.ID %></h3>
+                                                <div class="mb-1">
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Registration No.</h5>
+                                                <h2 class="mt-1 mb-3"><%= user.regNo %></h2>
+                                                <div class="mb-1">
+                                                    <span><%= user.sessionFrom %> &nbsp;- &nbsp;<%= user.sessionTo %></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Roll No.</h5>
+                                                <h2 class="mt-1 mb-3"><%= user.rollNo %></h2>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-xxl-7">
+                            <div class="card flex-fill w-100">
+                                <div class="card-header">
+
+                                    <h5 class="card-title mb-0">Attendence</h5>
+                                </div>
+                                <div class="card-body py-3 container">
+
+                                    <canvas id="myChart" height="200px"></canvas>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6" >
+                            <section class="card">
+                              <div class="card-body text-secondary" style="display: block; margin-left: auto; margin-right: auto; width: 100%;" >
+                                <h1>TIME TABLE</h1>
+                                <img src="images/routen.jpg" style="margin-top: 20px;"> 
+                            </div>
+                            </section>
+                          </div>
+
+
+                          <!-- Calender Impelemntation using Jquesy -->
+                          <div class="col-lg-6">
+                            <section class="card">
+                              <div class="card-body text-secondary">
+                                <div class="container">
+		
+
+                                    <h1>Calendar</h1>
+                            
+                                    <div id="v-cal">
+                                        <div class="vcal-header">
+                                            <button class="vcal-btn" data-calendar-toggle="previous">
+                                                <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                                                </svg>
+                                            </button>
+                            
+                                            <div class="vcal-header__label" data-calendar-label="month">
+                                                March 2017
+                                            </div>
+                            
+                            
+                                            <button class="vcal-btn" data-calendar-toggle="next">
+                                                <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="vcal-week">
+                                            <span>Mon</span>
+                                            <span>Tue</span>
+                                            <span>Wed</span>
+                                            <span>Thu</span>
+                                            <span>Fri</span>
+                                            <span>Sat</span>
+                                            <span>Sun</span>
+                                        </div>
+                                        <div class="vcal-body" data-calendar-area="month"></div>
+                                    </div>
+                            
+                                    
+                            
+                                    
+                                </div>
+                            </div>
+                            </section>
+                          </div>
+                        </div>
+
+
+
+                        
+                       
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-8 col-xxl-9 d-flex">
+                            <div class="card flex-fill">
+                                <div class="card-header">
+
+                                    <h1>Subjects</h1>
+                                </div>
+                                <table class="table table-hover my-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject code</th>
+                                            <th class="d-none d-xl-table-cell">Subject Name</th>
+                                            <th>Theory/Practical</th>
+                                            <th class="d-none d-md-table-cell">Teacher</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CS501</td>
+                                            <td class="d-none d-xl-table-cell">Subject1</td>
+                                            <td><span class="badge bg-success">Theory</span></td>
+                                            <td class="d-none d-md-table-cell">Teacher1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+                            <div class="card flex-fill w-100">
+                                <div class="card-header">
+
+                                    <h5 class="card-title mb-0">Latest Announcements</h5>
+                                </div>
+                                <div class="card-body d-flex w-100">
+                                    <div class="align-self-center chart chart-lg">
+                                        <canvas id="chartjs-dashboard-bar"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-left">
+                            <p class="mb-0">
+                                <a href="index.html" class="text-muted"><strong>Rohit Shaw</strong></a> &copy;
+                            </p>
+                        </div>
+                        <!-- <div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div> -->
+                    </div>
+                </div>
+            </footer>
+    </div>
+
+    <!--===== MAIN JS =====-->
+
+
+  
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("datetimepicker-dashboard").flatpickr({
+                inline: true,
+                prevArrow: "<span class=\"fas fa-chevron-left\" title=\"Previous month\"></span>",
+                nextArrow: "<span class=\"fas fa-chevron-right\" title=\"Next month\"></span>",
+            });
+        });
+    </script>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Subj1', 'Subj2', 'Subj3', 'Subj4', 'Subj5', 'Subj6'],
+                datasets: [{
+                    label: 'Attendence',
+                    data: [62, 79, 73, 85, 72, 63],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+
+
+
+<script src="js/vanillaCalendar.js" type="text/javascript"></script>
+<script>
+    window.addEventListener('load', function () {
+        vanillaCalendar.init({
+            disablePastDays: true
+        });
+    })
+</script>
+
+
+
+
+
+
+
+    
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

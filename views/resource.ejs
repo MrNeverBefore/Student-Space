@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/resource.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <title>DSCSDEC</title>
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+            <span>Resources</span>
+        </div>
+
+        <div class="header__img" title="UserName">
+            <img src="images/pic.JPG" alt="">
+
+        </div>
+
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="/" class="nav__logo" title="Dr. Sudhir Chandra Sur Degree Engineering College">
+                    <img src="images/logo.jpeg" class="main-logo">
+                    <span class="nav__logo-name">DSCSDEC</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="/dashboard" class="nav__link " title="Dashboard" type="submit">
+                        <i class='bx bx-home nav__icon'></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+
+                    <a href="/resource" class="nav__link active" title="Resources">
+                        <i class='bx bx-book nav__icon'></i>
+                        <span class="nav__name">Resources</span>
+                    </a>
+
+                    <a href="/announcements" class="nav__link" title="Announcemnets">
+                        <i class='bx bx-notification nav__icon'></i>
+                        <span class="nav__name">Announcemnets</span>
+                    </a>
+
+                    <a href="/acedmics" class="nav__link" title="Acedmics">
+                        <i class='bx bx-book-reader nav__icon'></i>
+                        <span class="nav__name">Acedmics</span>
+                    </a>
+
+                    <a href="/articles" class="nav__link" title="Articles">
+                        <i class='bx bx-book-content nav__icon'></i>
+                        <span class="nav__name">Articles</span>
+                    </a>
+
+                    <!-- <a href="#" class="nav__link" title="Profile">
+                        <i class='bx bx-user nav__icon'></i>
+                        <span class="nav__name">Profile</span>
+                    </a> -->
+                </div>
+            </div>
+
+            <a href="/users/logout" class="nav__link" title="Log Out">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-frame">
+        <div class="main">
+            <div class="container d-flex justify-content-center">
+                <div class="row" style="margin-top: 80px;">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h2>Study Resource</h2>
+
+                    <div class="row">
+                        <div class="column">
+                            <div class="card">
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="card">
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+
+
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"
+                                            style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)">
+                                        </div>
+                                        <ul class="details">
+                                            <li class="author"><a href="#">John Doe</a></li>
+                                            <li class="date">Aug. 24, 2015</li>
+                                            <li class="tags">
+                                                <ul>
+                                                    <li><a href="#">Learn</a></li>
+                                                    <li><a href="#">Code</a></li>
+                                                    <li><a href="#">HTML</a></li>
+                                                    <li><a href="#">CSS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <h1>Learning to Code</h1>
+                                        <h2>Opening a door to the future</h2>
+                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum
+                                            architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam
+                                            facilis numquam. Veritatis, sit.</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+             </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/resource.js"></script>
+
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</body>
+
+</html>

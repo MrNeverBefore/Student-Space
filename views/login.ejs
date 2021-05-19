@@ -1,0 +1,33 @@
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <img style="height: 90px; width: 90px; margin-left: 45%; "src="/images/logo.png">
+      <% include ./partials/messages %>
+      <br><br>
+      <form action="/users/login" method="POST">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input
+            type="text"
+            id="ID"
+            name="ID"
+            class="form-control"
+            placeholder="Enter ID"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+      
+    </div>
+  </div>
+</div>
