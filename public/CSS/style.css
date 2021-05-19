@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #0d335d;
+}
+
+.form{
+	z-index: 1;
+	font-family: "Poppins", sans-serif;
+	position: absolute;
+	width: 420px;
+	text-align: center;
+	border: solid;
+	padding: 50px;
+	border-radius: 50px;
+	background-color: #eaffd0;
+	border-color: #eaffd0;
+  
+}
+
+
+.clg-logo{
+  width: auto;
+  height: 120px;
+}
+.form i{
+	z-index: 1;
+	font-size: 65px;
+	margin-bottom: 30px;
+}
+
+
+.form .user-input{
+	width: 320px;
+	height: 55px;
+	margin-bottom: 30px;
+	/*outline: none;
+	border: none;*/
+	background: rgba(255, 255, 255, 0.2);
+	color: #0d335d;
+	font-size: 18px;
+	text-align: center;
+	border-radius: 15px;
+	transition: 0.5s;
+	transition-property: border-left, border-right, box-shadow;
+}
+
+.form .user-input:hover, .form .user-input:focus, .form .user-input:active{
+	border-left: solid 1px #0d335d;
+	border-right: solid 1px #0d335d;
+	box-shadow: 0 0 100px rgba(162, 208, 193, 0.8);
+}
+
+.form .options-01{
+	margin-bottom: 50px;
+}
+
+.form .options-01 input{
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+}
+
+.form .options-01 {
+	color: #bbb;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	float: left;
+	cursor: pointer;
+}
+
+.form .options-01 a{
+	color: #888;
+	font-size: 14px;
+	font-style: italic;
+	float: right;
+}
+
+.form .btn{
+	outline: none;
+	border: none;
+	width: 320px;
+	height: 55px;
+	background: #0d335d;
+	color: #fff;
+	font-size: 18px;
+	letter-spacing: 1px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.5s;
+	transition-property: border-left, border-right, box-shadow;
+}
+
+.form .btn:hover{
+		box-shadow: 0 0 100px rgba(162, 208, 193, 0.8);
+}
+
+.form .options-02{
+	color: #bbb;
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.form .options-02 a{
+	color: #4285F4;
+}
+
+/* Responsive CSS */
+
+@media screen and (max-width: 500px){
+	.form{
+		width: 95%;
+	}
+
+	.form .user-input{
+		width: 100%
+	}
+
+	.form .btn{
+		width: 100%;
+	}
+}
