@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/CSS/student.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container" >
+      <br><br>
+    <div class="title">Add Exam</div>
+    <div class="content">
+      <form action="/users/addexam" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Exam ID</span>
+            <input type="text" placeholder="Enter ID" name="examId" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Exam Title</span>
+            <input type="text" placeholder="Enter Title" name="examTitle" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Subject ID</span>
+            <input type="text" placeholder="Subject ID." name="subjectId" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Exam Date</span>
+            <input type="date" placeholder="Date" name="examDate" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Full Marks</span>
+            <input type="text" placeholder="Description.." name="fullMarks" required>
+          </div>
+
+          <div class="button">
+            <input type="submit" value="Save">
+          </div> 
+            
+        </form>
+  
+        <div class="button">
+          <a href="/users/welcome"><input  value="Back"></a>
+        </div> 
+      
+    </div>
+  </div>
+
+
+
+</body>
+</html>

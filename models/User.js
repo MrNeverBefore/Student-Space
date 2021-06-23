@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  session: {
+    type: String,
+    required: true
+  },
   regNo: {
     type: String,
     required: true
@@ -21,15 +25,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  fatherName: {
-    type: String,
-    required: true
-  },
-  sessionFrom: {
-    type: String,
-    required: true
-  },
-  sessionTo: {
+  gname: {
     type: String,
     required: true
   },
@@ -37,16 +33,19 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  sem: {
+  DoB: {
+    type: Date,
+    required: true
+  },
+  batchId: {
     type: String,
     required: true
   },
-
   email: {
     type: String,
     required: true
   },
-  phoneNo: {
+  phone: {
     type: String,
     required: true
   },

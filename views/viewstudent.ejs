@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/CSS/student.css">
+   
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container" >
+    <div class="title">Registration</div>
+    <div class="content" style="margin-top: 100px;">
+      <form action="/users/updated" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Student name</span>
+            <input type="text" placeholder="Enter your name" name="name" value="<%= user.name %>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">student Id</span>
+            <input type="text" placeholder="Enter your student id" name="ID" value="<%= user.ID%>" required readonly>
+          </div>
+          <div class="input-box">
+            <span class="details">Gradian's Name</span>
+            <input type="text" placeholder="Enter Gradian's Name" name="gname" value="<%= user.gname%>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Batch ID</span>
+            <input type="text" placeholder="Enter Batch id" name="batchId" value="<%= user.batchId%>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" name="email" value="<%= user.email%>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" name="phone" value="<%= user.phone%>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Gender</span>
+            <select name="gender">
+              <option value="Male" <%= (user.gender=="Male")? "selected":""; %>  >Male</option>
+              <option value="Female" <%= (user.gender=="Female")? "selected":""; %>>Female</option>
+              </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Date of Birth</span>
+            <input type="date" required name="DoB" value="<%=DoB%>">
+          </div>
+          <div class="input-box">
+            <span class="details">Roll no</span>
+            <input type="text" placeholder="Enter your Roll no" name="rollNo" value="<%= user.rollNo%>" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Registration no</span>
+            <input type="text" placeholder="Enter your Registration no" name="regNo" value="<%= user.regNo%>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Department</span>
+            <select name="department">
+              <option value="CSE" <%= (user.department=="CSE")? "selected":""; %>>Computer Science</option>
+              <option value="ECE" <%= (user.department=="ECE")? "selected":""; %>>Electronics & Communication</option>
+              <option value="EEE" <%= (user.department=="EEE")? "selected":""; %>>Electrical</option>
+              <option value="ME" <%= (user.department=="ME")? "selected":""; %>>Mechanical</option>
+              <option value="CE" <%= (user.department=="CE")? "selected":""; %>>Civil</option>
+              <option value="AUE" <%= (user.department=="AUE")? "selected":""; %>>Automobiles</option>
+              </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Admission Year</span>
+            <input type="text" placeholder="Enter your Admission Year" name="session" value="<%= user.session%>" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details"> Change Password</span>
+            <input type="text" placeholder="Enter your password" name="password"  required>
+          </div>
+          
+
+
+        
+
+
+        </div>
+        <div class="button">
+          <input type="submit" value="Update">
+        </div> 
+             
+      </form>
+
+      <div class="button">
+        <a href="/users/updatestudent"><input type="submit" value="Back"></a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.0.1",
     "connect-flash": "^0.1.1",
     "dompurify": "^2.2.7",
     "ejs": "^2.6.1",
@@ -26,6 +27,7 @@
     "multer": "^1.4.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "slugify": "^1.5.0",
     "string-strip-html": "^8.2.11"
   },

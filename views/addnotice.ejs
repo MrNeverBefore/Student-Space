@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/CSS/student.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container" >
+      <br><br>
+    <div class="title">Add Notice</div>
+    <div class="content">
+      <form action="/users/addnotice" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Notice ID</span>
+            <input type="text" placeholder="Enter ID" name="noticeId" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Notice Title</span>
+            <input type="text" placeholder="Enter Title" name="noticeTitle" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Notice Description</span>
+            <input type="text" placeholder="Description.." name="noticeDesp" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Department</span>
+            <select name="noticeDepartment">
+                <option value="CSE">Computer Science</option>
+                <option value="ECE">Electronics & Communication</option>
+                <option value="EEE">Electrical</option>
+                <option value="ME">Mechanical</option>
+                <option value="CE">Civil</option>
+                <option value="AUE">Automobiles</option>
+                </select>
+          </div>
+
+        <div class="button">
+          <input type="submit" value="Save">
+        </div> 
+          
+      </form>
+
+      <div class="button">
+        <a href="/users/welcome"><input  value="Back"></a>
+      </div> 
+
+      
+    </div>
+  </div>
+
+</body>
+</html>

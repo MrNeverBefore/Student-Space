@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/CSS/student.css">
+   
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container" >
+    <div class="title">Registration</div>
+    <div class="content" style="margin-top: 100px;">
+      <form action="/users/saveteacher" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Teacher Name</span>
+            <input type="text" placeholder="Enter your name" name="teacherName" value="<%= teacher.teacherName %>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Teacher Id</span>
+            <input type="text" placeholder="Enter your student id" value="<%= teacher.teacherId %>" name="teacherId" required>
+          </div>
+          
+          
+          <div class="input-box">
+            <span class="details">Department</span>
+            <select name="teacherDepartment">
+              <option <%= (teacher.teacherDepartment=="CSE")? "selected":""; %> value="CSE">Computer Science</option>
+              <option <%= (teacher.teacherDepartment=="ECE")? "selected":""; %> value="ECE">Electronics & Communication</option>
+              <option <%= (teacher.teacherDepartment=="EEE")? "selected":""; %> value="EEE">Electrical</option>
+              <option <%= (teacher.teacherDepartment=="ME")? "selected":""; %> value="ME">Mechanical</option>
+              <option <%= (teacher.teacherDepartment=="CE")? "selected":""; %> value="CE">Civil</option>
+              <option <%= (teacher.teacherDepartment=="AUE")? "selected":""; %> value="AUE">Automobiles</option>
+              </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Gender</span>
+            <select name="teacherGender">
+              <option <%= (teacher.teacherGender=="Male")? "selected":""; %> value="Male">Male</option>
+              <option <%= (teacher.teacherGender=="Female")? "selected":""; %> value="Female">Female</option>
+              </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" value="<%= teacher.teacherEmail %>" name="teacherEmail" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone No.</span>
+            <input type="text" placeholder="Enter your phone" name="teacherPhone" value="<%= teacher.teacherPhone %>" required>
+          </div>
+          
+
+
+
+        </div>
+        <div class="button">
+          <input type="submit" value="Update">
+        </div> 
+             
+      </form>
+
+      <div class="button">
+        <a href="/users/welcome"><input type="submit" value="Back"></a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

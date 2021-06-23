@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="/CSS/updateStudent.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 card-margin">
+          <div class="card search-form">
+            <div class="card-body p-0">
+              <form id="search-form" action="/users/addmarks" method="POST">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="row no-gutters">
+                      <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                        <select
+                          class="form-control"
+                          id="exampleFormControlSelect1"
+                          name="examId"
+                        >
+                          <option>Exam Title</option>
+                          <% for(var i=1;i<exam.length;i++){ %>
+                        <option><%= exam[i].examId %></option>
+                            <%  }%>
+
+                        </select>
+                      </div>
+                      
+                      
+                      
+
+                      
+                      
+                      <div class="col-lg-1 col-md-3 col-sm-12 p-0 ">
+                        <button type="submit" class="btn btn-base">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-search"
+                          >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-box clearfix">
+            <div class="table-responsive">
+              <form action="/users/savemarks" method="POST">
+                <br><span style="margin-left: 7%; font-size: 25px;">Exam Name:</span><h3 style="display: inline-block; font-size: 20px; margin-left: 2%; font-family: sans-serif;"><%= exam[0].examTitle %></h3><br>
+                <span style="margin-left: 7%; font-size: 25px; margin-right: 0px;">Exam ID:</span>   <input style="border: none; font-size: 20px; margin-left: 2%;" name="examId" type="text" value="<%= exam[0].examId%>" readonly>
+              <span style=" font-size: 25px;">Full Marks:</span>  <input style="border: none; font-size: 20px; margin-left: 2%;" name="fullMarks" type="text" value="<%= exam[0].fullMarks%>" readonly><br><br><br>
+                <table class="table user-list">
+                    <thead>
+                      <tr>
+                        <th><span>Student Name</span></th>
+                        <th><span>Department</span></th>
+                        <th><span>Batch ID</span></th>
+                        <th><span>Obtain Marks</span></th>
+                        <th>&nbsp;</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <% for(var i=0; i<user.length; i++) { %>
+                      <tr>
+                        <td>
+                          
+                          <h3><%= user[i].name %></h3>
+                          <span class="user-subhead"><input type="text" name="studentId" value="<%= user[i].ID %>"  style="border: none;" readonly></span>
+                        </td>
+                        <td><input type="text" name="department" value="<%= user[i].department %>"  style="border: none;" readonly></td>
+                        <td><input type="text" name="batchId" value="<%= user[i].batchId %>"  style="border: none;" readonly></td>
+                        <td class="text-center">
+                          <input type="text" name="obtainMarks">
+                        </td>
+                      </tr>
+                      <% } %>
+
+                      
+                      
+                    </tbody>
+                  </table>
+                  <% if(user.length<1){ %>
+                    <span style="font-size: 20px; margin-left:40%">No Data Found.</span><br>
+                  <%} else {%>
+                  <a type="submit" class="btn btn-success btn-lg " role="button" aria-disabled="true" style="width: 90px; height: auto;"><input type="submit" value="Save"> </a>
+                  <%}%>
+              </form>
+            </div>
+            <br><br>
+            <a href="/users/welcome" class="btn btn-danger btn-lg " role="button" aria-disabled="true" style="width: 90px; height: auto;">Back</a>
+            <% if(user.length>0){ %>
+              <ul class="pagination pull-right">
+                <li>
+                  <a href="#"><i class="fa fa-chevron-left"></i></a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-chevron-right"></i></a>
+                </li>
+              </ul>
+            <%}%>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -2,59 +2,58 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/CSS/student.css">
-   
+    <link rel="stylesheet" href="CSS/student.css">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
   <div class="container" >
     <div class="title">Registration</div>
-    <div class="content" style="margin-top: 100px;">
+    <div class="content">
       <form action="/users/register" method="POST">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Student name</span>
-            <input type="text" placeholder="Enter your name" name="name" required>
+            <input type="text" placeholder="Enter your name" required>
           </div>
           <div class="input-box">
             <span class="details">student Id</span>
-            <input type="text" placeholder="Enter your student id" name="ID" required>
+            <input type="text" placeholder="Enter your student id" required>
           </div>
           <div class="input-box">
             <span class="details">Gradian's Name</span>
-            <input type="text" placeholder="Enter Gradian's Name" name="gname" required>
+            <input type="text" placeholder="Enter Gradian's Name" required>
           </div>
           <div class="input-box">
             <span class="details">Batch ID</span>
-            <input type="text" placeholder="Enter Batch id" name="batchId" required>
+            <input type="text" placeholder="Enter Batch id" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" name="email" required>
+            <input type="text" placeholder="Enter your email" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" name="phone" required>
+            <input type="text" placeholder="Enter your number" required>
           </div>
           <div class="input-box">
             <span class="details">Gender</span>
-            <select name="gender">
+            <select name="department">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               </select>
           </div>
           <div class="input-box">
             <span class="details">Date of Birth</span>
-            <input type="date" required name="DoB">
+            <input type="date" required>
           </div>
           <div class="input-box">
             <span class="details">Roll no</span>
-            <input type="text" placeholder="Enter your Roll no" name="rollNo" required>
+            <input type="text" placeholder="Enter your Roll no" required>
           </div>
           
           <div class="input-box">
             <span class="details">Registration no</span>
-            <input type="text" placeholder="Enter your Registration no" name="regNo" required>
+            <input type="text" placeholder="Enter your Registration no" required>
           </div>
           <div class="input-box">
             <span class="details">Department</span>
@@ -69,22 +68,17 @@
           </div>
           <div class="input-box">
             <span class="details">Admission Year</span>
-            <input type="number" placeholder="Enter your Admission Year" name="session" required>
+            <input type="number" placeholder="Enter your Admission Year" required>
           </div>
           
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" placeholder="Enter your password" name="password" required>
+            <input type="text" placeholder="Enter your password" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="password" placeholder="Confirm your password" name="password2" required>
+            <input type="text" placeholder="Confirm your password" required>
           </div>
-
-
-          
-
-
         </div>
         <div class="button">
           <input type="submit" value="Register">

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/CSS/student.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Resource</div>
+        <div class="content">
+            <form action="/users/addresource" method="POST">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Resource ID</span>
+                        <input type="text" placeholder="Enter ID" name="resourceId" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Resource Title</span>
+                        <input type="text" placeholder="Enter Title " name="resourceTitle" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Resource Description</span>
+                        <input type="text" placeholder="Enter Description " name="resourceDesp" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Department</span>
+                        <select name="resourceDepartment">
+                            <option value="CSE">Computer Science</option>
+                            <option value="ECE">Electronics & Communication</option>
+                            <option value="EEE">Electrical</option>
+                            <option value="ME">Mechanical</option>
+                            <option value="CE">Civil</option>
+                            <option value="AUE">Automobiles</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Link</span>
+                        <input type="text" placeholder="Enter link" name="resourceLink" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Source</span>
+                        <input type="text" placeholder="Enter source" name="resourceSource" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Auther</span>
+                        <input type="text" placeholder="Confirm Author" name="resourceAuthor" required>
+                    </div>
+                </div>
+        </div>
+        <div class="button">
+            <input type="submit" value="Register">
+        </div>
+
+        </form>
+<br><br>
+        <div class="button">
+            <a href="/users/welcome"><input type="submit" value="Back"></a>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

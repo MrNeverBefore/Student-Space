@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Subject</title>
+<link rel="stylesheet" href="/CSS/subject.css">
+</head>
+ 
+<body bgcolor="#E6E6FA">
+ 
+<form action="/users/addsubject" method="POST">
+<h2>Subject</h2>
+ 
+<label for="r1" id="fn">Subject Name :</label>
+<input type="text" name="subjectName"  required><br/>
+ 
+<label  for="r2" id="ln">Subject code:</label>
+<input type="text" name="subjectId" required><br/>
+ 
+
+<label  for="r3" id="un">Department :</label>
+<select
+class="form-control"
+id="exampleFormControlSelect1"
+name="subjectDepartment"
+required style="width: 50%; margin: auto;"
+>
+<option>Departmment</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>ME</option>
+<option>CE</option>
+<option>AUE</option>
+</select><br>
+ 
+<label for="r8" id="cy">Subject Type:</label>
+ 
+<select id="r8" name="subjectType" required>
+<option>Select</option>
+<option>Theory</option>
+<option>Practicle</option>
+<option>Other</option>
+</select><br/><br/>
+ 
+<button type="submit" id="button">Submit</button>
+
+
+</form>
+<a href="/users/welcome"><button type="submit" value="Submit" id="button">Back</button></a>
+ 
+ 
+</body>
+</html>

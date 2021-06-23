@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Subject</title>
+    
+    <style>
+      body{
+    margin: 100px;
+    text-align: center;
+    box-align: center;
+    }
+     
+    input[type=text],[type=number]{
+    width: 20%;
+    margin: 8px 0;
+    padding: 7px 10px;
+    display: inline-block;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+    
+    }
+     
+    button{
+    background-color:#4CAF50;
+    width: 10%;
+    padding: 9px 5px;
+    margin:5px 0;
+    cursor:pointer;
+    border:none;
+    color:#ffffff;
+    margin-left: 80px;
+    }
+     
+    button:hover{
+    opacity:0.8;
+    }
+    </style>
+  </head>
+
+  <body bgcolor="#E6E6FA">
+    <form name="regi" action="register1.jsp" method="post">
+      <h2>ADD Event</h2>
+
+      <label for="r1" >Event Id:</label>
+      <input type="text" name="eventId"  /><br />
+
+      <label for="r3" id="un">Event Title :</label>
+      <input type="text" name="eventTitle" /><br />
+
+      <label for="r3" id="un">Event Description :</label>
+      <input type="text" name="eventDesp"/><br />
+
+      <label for="r2" id="ln">Date of Event:</label>
+      <input type="date" name="eventDate" /><br /><br>
+
+      <button type="submit" value="Submit">Submit</button>
+      
+    </form>
+    <a><button >back</button></a>
+
+    
+  </body>
+</html>

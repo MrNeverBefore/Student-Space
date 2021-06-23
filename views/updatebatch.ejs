@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/CSS/student.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    div.ex2 {
+
+      width: 250px;
+      height: 150px;
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <br><br>
+    <div class="title">Update Batch</div>
+    <div class="content">
+      <form action="/users/updatebatch" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Batch ID</span>
+            <input type="text" placeholder="Enter ID" name="batchId" value="<%= batch.batchId %>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Batch Department</span>
+            <select name="batchDepartment" id="department">
+              <option <%= (batch.batchDepartment=="CSE")? "selected":""; %> value="CSE">Computer Science</option>
+              <option <%= (batch.batchDepartment=="ECE")? "selected":""; %> value="ECE">Electronics & Communication</option>
+              <option <%= (batch.batchDepartment=="EEE")? "selected":""; %> value="EEE">Electrical</option>
+              <option <%= (batch.batchDepartment=="ME")? "selected":""; %> value="ME">Mechanical</option>
+              <option <%= (batch.batchDepartment=="CE")? "selected":""; %> value="CE">Civil</option>
+              <option <%= (batch.batchDepartment=="AUE")? "selected":""; %> value="AUE">Automobiles</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Admission Year</span>
+            <input type="text" placeholder="Enter Title" name="admYear" value="<%= batch.admYear %>" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Mentor</span>
+            <input type="text" placeholder="enter Teacher Id" name="mentor" value="<%= batch.mentor %>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">HOD</span>
+            <input type="text" placeholder="Enter Teacher ID" name="hod" value="<%= batch.hod %>" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Current Semester</span>
+            <select name="currentSem" id="department" style="width: 210px;">
+              <option <%= (batch.currentSem=="1")? "selected":""; %> value="1">1st</option>
+              <option <%= (batch.currentSem=="2")? "selected":""; %> value="2">2nd</option>
+              <option <%= (batch.currentSem=="3")? "selected":""; %> value="3">3rd</option>
+              <option <%= (batch.currentSem=="4")? "selected":""; %> value="4">4th</option>
+              <option <%= (batch.currentSem=="5")? "selected":""; %> value="5">5th</option>
+              <option <%= (batch.currentSem=="6")? "selected":""; %> value="6">6th</option>
+              <option <%= (batch.currentSem=="7")? "selected":""; %> value="7">7th</option>
+              <option <%= (batch.currentSem=="8")? "selected":""; %> value="8">8th</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Current Year</span>
+            <select name="currentYear" id="department" style="width: 210px;">
+              <option <%= (batch.currentYear=="1")? "selected":""; %> value="1">1st</option>
+              <option <%= (batch.currentYear=="2")? "selected":""; %>  value="2">2nd</option>
+              <option <%= (batch.currentYear=="3")? "selected":""; %>  value="3">3rd</option>
+              <option <%= (batch.currentYear=="4")? "selected":""; %>  value="4">4th</option>
+            </select>
+          </div>
+
+          <div class="form-check">
+            <span class="details" style="font-size: 20px;">Batch Subjects</span><br>
+
+            <div class="ex2">
+              <% for(var i=0;i<subj.length;i++){%>
+
+                <input type="checkbox" class="form-check-input" <%= (batch.subject.includes(subj[i].subjectId))? "checked":""; %>  name="subject" value="<%=subj[i].subjectId %>">
+                <label class="form-check-label" for="subject">(<%=subj[i].subjectId %>) <%=subj[i].subjectName %> (
+                      <%=subj[i].subjectType %>)</label><br>
+                <%}%>
+                
+
+            </div>
+          </div>
+          <div class="form-check">
+            <span class="details" style="font-size: 20px;">Batch Exams</span><br><br>
+
+            <div class="ex2">
+              <% for(var i=1;i<examList.length;i++){%>
+
+                <input type="checkbox" class="form-check-input" name="exam" <%= (batch.exam.includes(examList[i].subjectId))? "checked":""; %> value="<%=examList[i].subjectId %>">
+                <label class="form-check-label" for="exam">(<%=examList[i].examId %>) <%=examList[i].examTitle %> (Date :
+                      <%=examList[i].examDate.getDate()+" / "+examList[i].examDate.getMonth()+" / "+examList[i].examDate.getFullYear() %>)</label><br>
+                <%}%>
+                
+
+            </div>
+          </div>
+
+
+          <div class="button">
+            <input type="submit" style="width: 80px;" value="Update">
+          </div>
+
+      </form>
+
+      <div class="button">
+        <a href="/users/welcome"><input type="submit" value="Back"></a>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

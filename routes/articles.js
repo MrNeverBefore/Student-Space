@@ -8,7 +8,7 @@ router.get('/new', ensureAuthenticated, (req, res) => {
 })
 
 router.get('/edit/:id', ensureAuthenticated, async (req, res) => {
-  console.log(req.user);
+  
   const article = await Article.findById(req.params.id)
   res.render('articles/edit', { article: article , user:req.user})
 })
