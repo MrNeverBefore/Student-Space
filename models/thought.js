@@ -1,29 +1,34 @@
 const mongoose = require('mongoose');
 
-const MarksSchema = new mongoose.Schema({
-  examId: {
+const ThoughtSchema = new mongoose.Schema({
+ 
+  studentId: {
     type: String,
     required: true
   },
-    studentId: [{
+  studentName: {
     type: String,
     required: true
-  }],
+  },
   batchId: {
     type: String,
     required: true
   },
-  fullMarks: {
+  department: {
     type: String,
     required: true
   },
-  obtainMarks: [{
+  thought: {
     type: String,
     required: true
-  }]
+  },
+  date: {
+    type: Date,
+    required: true
+  }
   
 });
 
-const Marks = mongoose.model('Marks', MarksSchema);
+const Thought = mongoose.model('Thought', ThoughtSchema);
 
-module.exports = Marks;
+module.exports = Thought;

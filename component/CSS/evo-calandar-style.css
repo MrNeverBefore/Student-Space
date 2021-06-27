@@ -1,0 +1,13 @@
+.out{
+    width:100%;
+    hight: 100%;
+    position: relative;
+}
+
+#calendar{
+    width:90%;
+    
+    position: absolute;
+   
+    left: 7%;
+}

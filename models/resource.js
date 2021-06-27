@@ -25,6 +25,10 @@ const ResourceSchema = new mongoose.Schema({
         type: String,
         required: true
       },
+      resourceType: { 
+        type: String,
+        required: true
+      },
       resourcePublishDate: {
         type: String,
         required: true

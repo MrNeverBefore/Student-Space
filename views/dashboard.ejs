@@ -13,13 +13,139 @@
     <link rel="stylesheet" href="CSS/theme.css">
 
 
-  
+
     <link href="CSS/vanillaCalendar.css" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 
- <!-- -------------------------------------Chart Link    =====================================  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+    <style>
+        /*** VARIABLES ***/
+        /* Colors */
+        /*** EXTEND ***/
+        /* box-shadow */
+        ol.gradient-list>li::before,
+        ol.gradient-list>li {
+            box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
+        }
+
+        /*** STYLE ***/
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: #1d1f20;
+            font-family: "Raleway", sans-serif;
+        }
+
+        main {
+            display: block;
+            margin: 0 auto;
+            max-width: 40rem;
+            padding: 1rem;
+        }
+
+        ol.gradient-list {
+            counter-reset: gradient-counter;
+            list-style: none;
+            margin: 1.75rem 0;
+            padding-left: 1rem;
+        }
+
+        ol.gradient-list>li {
+            background: white;
+            border-radius: 0 0.5rem 0.5rem 0.5rem;
+            counter-increment: gradient-counter;
+            margin-top: 1rem;
+            min-height: 3rem;
+            padding: 1rem 1rem 1rem 3rem;
+            position: relative;
+        }
+
+        ol.gradient-list>li::before,
+        ol.gradient-list>li::after {
+            background: linear-gradient(135deg, #83e4e2 0%, #a2ed56 100%);
+            border-radius: 1rem 1rem 0 1rem;
+            content: "";
+            height: 3rem;
+            left: -1rem;
+            overflow: hidden;
+            position: absolute;
+            top: -1rem;
+            width: 3rem;
+        }
+
+        ol.gradient-list>li::before {
+            align-items: flex-end;
+            content: counter(gradient-counter);
+            color: #1d1f20;
+            display: flex;
+            font: 900 1.5em/1 "Montserrat";
+            justify-content: flex-end;
+            padding: 0.125em 0.25em;
+            z-index: 1;
+        }
+
+        ol.gradient-list>li:nth-child(10n+1):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(253, 220, 50, 0.2) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+2):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(253, 220, 50, 0.4) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+3):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(253, 220, 50, 0.6) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+4):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(253, 220, 50, 0.8) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+5):before {
+            background: linear-gradient(135deg, #a2ed56 0%, #fddc32 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+6):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(253, 220, 50, 0.8) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+7):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(253, 220, 50, 0.6) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+8):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(253, 220, 50, 0.4) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+9):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(253, 220, 50, 0.2) 100%);
+        }
+
+        ol.gradient-list>li:nth-child(10n+10):before {
+            background: linear-gradient(135deg, rgba(162, 237, 86, 0) 0%, rgba(253, 220, 50, 0) 100%);
+        }
+
+        ol.gradient-list>li+li {
+            margin-top: 2rem;
+        }
+    </style>
+
+
+
+    <!-- -------------------------------------Chart Link    =====================================  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
 
@@ -35,7 +161,7 @@
             <span>Dashboard</span>
         </div>
 
-        
+
 
     </header>
     <!------------------------------------------------------- Header End ---------------------------------------------->
@@ -60,9 +186,13 @@
                         <span class="nav__name">Resources</span>
                     </a>
 
-                    <a href="/announcements" class="nav__link" title="Announcemnets">
+                    <a href="/event" class="nav__link" title="Event">
                         <i class='bx bx-notification nav__icon'></i>
-                        <span class="nav__name">Announcemnets</span>
+                        <span class="nav__name">Event</span>
+                    </a>
+                    <a href="/notice" class="nav__link" title="Notice">
+                        <i class='bx bxs-news nav__icon'></i>
+                        <span class="nav__name">Notice</span>
                     </a>
 
                     <a href="/acedmics" class="nav__link" title="Acedmics">
@@ -75,10 +205,10 @@
                         <span class="nav__name">Articles</span>
                     </a>
 
-                    <!-- <a href="#" class="nav__link" title="Profile">
-                        <i class='bx bx-user nav__icon'></i>
-                        <span class="nav__name">Profile</span>
-                    </a> -->
+                    <a href="/thought" class="nav__link" title="Thought Wall">
+                        <i class='bx bx-bulb nav__icon'></i>
+                        <span class="nav__name">Thought Wall</span>
+                    </a>
                 </div>
             </div>
 
@@ -97,7 +227,7 @@
             <main class="content">
                 <div class="container-fluid p-0">
                     <div class="row mb-2 mb-xl-3">
-                        
+
                         <div class="col-auto d-none d-sm-block">
                             <h3>Dashboard</h3>
                         </div>
@@ -124,60 +254,72 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title mb-4">Name</h5>
-                                                <h1 class="mt-1 mb-3"><%= user.name %></h1>
+                                                <h1 class="mt-1 mb-3">
+                                                    <%= user.name %>
+                                                </h1>
                                                 <div class="mb-1">
-                                                
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-4">Current Semester</h5>
-                                                <h3 class="mt-1 mb-3"><%= user.sem %></h3>
-                                                <div class="mb-1">
-                                                    <span class="text-success"></span>
-                                                    <span class="text-muted">4th Year</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-4">Department</h5>
-                                                <h2 class="mt-1 mb-3"><%= user.department %></h2>
-                                                <div class="mb-1">
-                                                    <span class="text-success"></span>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        
-                                        
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-4">Student ID</h5>
-                                                <h3 class="mt-1 mb-3"><%= user.ID %></h3>
-                                                <div class="mb-1">
-                                                    
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-4">Registration No.</h5>
-                                                <h2 class="mt-1 mb-3"><%= user.regNo %></h2>
-                                                <div class="mb-1">
-                                                    <span><%= user.sessionFrom %> &nbsp;- &nbsp;<%= user.sessionTo %></span>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title mb-4">Roll No.</h5>
-                                                <h2 class="mt-1 mb-3"><%= user.rollNo %></h2>
-                                                
+                                                <h2 class="mt-1 mb-3">
+                                                    <%= user.rollNo %>
+                                                </h2>
+
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Department</h5>
+                                                <h2 class="mt-1 mb-3">
+                                                    <%= user.department %>
+                                                </h2>
+                                                <div class="mb-1">
+                                                    <span class="text-success"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+
+
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Student ID</h5>
+                                                <h3 class="mt-1 mb-3">
+                                                    <%= user.ID %>
+                                                </h3>
+                                                <div class="mb-1">
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Registration No.</h5>
+                                                <h2 class="mt-1 mb-3">
+                                                    <%= user.regNo %>
+                                                </h2>
+
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-4">Current Semester</h5>
+                                                <h3 class="mt-1 mb-3">
+                                                    <%= batch.currentSem %>
+                                                </h3>
+                                                <div class="mb-1">
+                                                    <span class="text-success"></span>
+                                                    <span class="text-muted">
+                                                        <%= batch.currentYear %> Year
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -201,167 +343,216 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-6" >
-                            <section class="card">
-                              <div class="card-body text-secondary" style="display: block; margin-left: auto; margin-right: auto; width: 100%;" >
-                                <h1>TIME TABLE</h1>
-                                <img src="images/routen.jpg" style="margin-top: 20px;"> 
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4"><b>Mentor</b></h5>
+                                        <h2 class="mt-1 mb-3">
+                                            <%= teach[1].teacherName %>
+                                        </h2>
+                                        <div class="mb-1">
+                                            <span class="text-success">phone No.</span>
+                                            <span class="text-muted">
+                                                <%= teach[1].teacherPhone %>
+                                            </span>
+                                            <span class="text-success" style="margin-left: 90px;">Email</span>
+                                            <span class="text-muted">
+                                                <%= teach[1].teacherEmail %>
+                                            </span>
+                                        </div>
+                                </div>
                             </div>
-                            </section>
-                          </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">HOD</h5>
+                                        <h2 class="mt-1 mb-3">
+                                            <%= teach[0].teacherName %>
+                                        </h2>
+                                        <div class="mb-1">
+                                            <span class="text-success">phone No.</span>
+                                            <span class="text-muted">
+                                                <%= teach[0].teacherPhone %>
+                                            </span>
+                                            <span class="text-success" style="margin-left: 90px;">Email :</span>
+                                            <span class="text-muted">
+                                                <%= teach[0].teacherEmail %>
+                                            </span>
+                                        </div>
 
-
-                          <!-- Calender Impelemntation using Jquesy -->
-                          <div class="col-lg-6">
+                                </div>
+                            </div>
                             <section class="card">
-                              <div class="card-body text-secondary">
-                                <div class="container">
-		
+                                <div class="card-body text-secondary"
+                                    style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
+                                    <h1>TIME TABLE</h1>
+                                    <img src="images/routen.jpg" style="margin-top: 20px;">
+                                </div>
+                            </section>
+                        </div>
 
-                                    <h1>Calendar</h1>
-                            
-                                    <div id="v-cal">
-                                        <div class="vcal-header">
-                                            <button class="vcal-btn" data-calendar-toggle="previous">
-                                                <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-                                                </svg>
-                                            </button>
-                            
-                                            <div class="vcal-header__label" data-calendar-label="month">
-                                                March 2017
+
+                        <!-- Calender Impelemntation using Jquesy -->
+                        <div class="col-lg-6">
+                            <section class="card">
+                                <div class="card-body text-secondary">
+                                    <div class="container">
+
+
+                                        <h1>Calendar</h1>
+
+                                        <div id="v-cal">
+                                            <div class="vcal-header">
+                                                <button class="vcal-btn" data-calendar-toggle="previous">
+                                                    <svg height="24" version="1.1" viewbox="0 0 24 24" width="24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+
+                                                <div class="vcal-header__label" data-calendar-label="month">
+                                                    March 2017
+                                                </div>
+
+
+                                                <button class="vcal-btn" data-calendar-toggle="next">
+                                                    <svg height="24" version="1.1" viewbox="0 0 24 24" width="24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
                                             </div>
-                            
-                            
-                                            <button class="vcal-btn" data-calendar-toggle="next">
-                                                <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-                                                </svg>
-                                            </button>
+                                            <div class="vcal-week">
+                                                <span>Mon</span>
+                                                <span>Tue</span>
+                                                <span>Wed</span>
+                                                <span>Thu</span>
+                                                <span>Fri</span>
+                                                <span>Sat</span>
+                                                <span>Sun</span>
+                                            </div>
+                                            <div class="vcal-body" data-calendar-area="month"></div>
                                         </div>
-                                        <div class="vcal-week">
-                                            <span>Mon</span>
-                                            <span>Tue</span>
-                                            <span>Wed</span>
-                                            <span>Thu</span>
-                                            <span>Fri</span>
-                                            <span>Sat</span>
-                                            <span>Sun</span>
-                                        </div>
-                                        <div class="vcal-body" data-calendar-area="month"></div>
+
+
+
+
                                     </div>
-                            
-                                    
-                            
-                                    
                                 </div>
-                            </div>
                             </section>
-                          </div>
-                        </div>
-
-
-
-                        
-                       
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-lg-8 col-xxl-9 d-flex">
-                            <div class="card flex-fill">
-                                <div class="card-header">
-
-                                    <h1>Subjects</h1>
-                                </div>
-                                <table class="table table-hover my-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Subject code</th>
-                                            <th class="d-none d-xl-table-cell">Subject Name</th>
-                                            <th>Theory/Practical</th>
-                                            <th class="d-none d-md-table-cell">Teacher</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CS501</td>
-                                            <td class="d-none d-xl-table-cell">Subject1</td>
-                                            <td><span class="badge bg-success">Theory</span></td>
-                                            <td class="d-none d-md-table-cell">Teacher1</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header">
-
-                                    <h5 class="card-title mb-0">Latest Announcements</h5>
-                                </div>
-                                <div class="card-body d-flex w-100">
-                                    <div class="align-self-center chart chart-lg">
-                                        <canvas id="chartjs-dashboard-bar"></canvas>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
+
+
+
+
 
                 </div>
+
+                <div class="row">
+                    <div class="col-12 col-lg-8 col-xxl-9 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+
+                                <h1>Wall Magazine</h1>
+                            </div>
+                            <div style="width: 90%; margin: auto;">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="data:image/jpeg;base64,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"
+                                            class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>First slide label</h5>
+                                            <p>Some representative placeholder content for the first slide.</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item ">
+                                        <img src="data:image/jpeg;base64,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"
+                                            class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Second slide label</h5>
+                                            <p>Some representative placeholder content for the second slide.</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-xxl-3 d-flex">
+                        <div class="card flex-fill w-100">
+                            <div class="card-header">
+
+                                <h5 class="card-title mb-0">BatchMate</h5>
+                            </div>
+                            <div class="card-body d-flex w-100">
+                                <div class="align-self-center chart chart-lg">
+
+
+
+
+                                    <div style="overflow: auto; ">
+                                        <ol class="gradient-list">
+                                            <% for(var i=0;i<batchMate.length;i++){ %>
+                                                <li>
+                                                    <h4>
+                                                        <%=batchMate[i].name%>
+                                                            </h2>
+                                                            <div class="mb-1" style="font-size: 10px;">
+                                                                <span class="text-success">phone No.</span>
+                                                                <span class="text-muted">
+                                                                    <%=batchMate[i].phone%>
+                                                                </span><br>
+                                                                <span class="text-success">Email</span>
+                                                                <span class="text-muted">
+                                                                    <%=batchMate[i].email%>
+                                                                </span>
+                                                            </div>
+
+                                                </li>
+                                                <%}%>
+                                        </ol>
             </main>
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-left">
-                            <p class="mb-0">
-                                <a href="index.html" class="text-muted"><strong>Rohit Shaw</strong></a> &copy;
-                            </p>
-                        </div>
-                        <!-- <div class="col-6 text-right">
+
+
+        </div>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row text-muted">
+                <div class="col-6 text-left">
+                    <p class="mb-0">
+                        <a href="index.html" class="text-muted"><strong>Rohit Shaw</strong></a> &copy;
+                    </p>
+                </div>
+                <!-- <div class="col-6 text-right">
 							<ul class="list-inline">
 								<li class="list-inline-item">
 									<a class="text-muted" href="#">Support</a>
@@ -377,87 +568,96 @@
 								</li>
 							</ul>
 						</div> -->
-                    </div>
-                </div>
-            </footer>
+            </div>
+        </div>
+    </footer>
     </div>
 
     <!--===== MAIN JS =====-->
+    <% var atten=[23]; var month=[] %>
+        <% for(var i=0;i<attendance.length;i++){ %>
 
+            <% (attendance==undefined)?"":
+                atten[i]=(attendance[i].attendancePercentage[attendance[i].attendanceStudentId.indexOf(user.ID)]); %>
+                <% (attendance==undefined)?"": month[i]=(attendance[i].attendanceMonth); %>
 
-  
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("datetimepicker-dashboard").flatpickr({
-                inline: true,
-                prevArrow: "<span class=\"fas fa-chevron-left\" title=\"Previous month\"></span>",
-                nextArrow: "<span class=\"fas fa-chevron-right\" title=\"Next month\"></span>",
-            });
-        });
-    </script>
-
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Subj1', 'Subj2', 'Subj3', 'Subj4', 'Subj5', 'Subj6'],
-                datasets: [{
-                    label: 'Attendence',
-                    data: [62, 79, 73, 85, 72, 63],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
+                    <% }%>
 
 
 
 
-<script src="js/vanillaCalendar.js" type="text/javascript"></script>
-<script>
-    window.addEventListener('load', function () {
-        vanillaCalendar.init({
-            disablePastDays: true
-        });
-    })
-</script>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                document.getElementById("datetimepicker-dashboard").flatpickr({
+                                    inline: true,
+                                    prevArrow: "<span class=\"fas fa-chevron-left\" title=\"Previous month\"></span>",
+                                    nextArrow: "<span class=\"fas fa-chevron-right\" title=\"Next month\"></span>",
+                                });
+                            });
+                        </script>
+
+                        <script>
+                            var atten = '<%= atten %>'.split(',')
+                            var month = '<%= month %>'.split(',')
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: month,
+                                    datasets: [{
+                                        label: 'Attendence',
+                                        data: atten,
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(255, 206, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                            'rgba(255, 159, 64, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(75, 192, 192, 1)',
+                                            'rgba(153, 102, 255, 1)',
+                                            'rgba(255, 159, 64, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+                        </script>
 
 
 
 
 
+                        <script>
+                            window.addEventListener('load', function () {
+                                vanillaCalendar.init({
+                                    disablePastDays: true
+                                });
+                            })
+                        </script>
 
 
-    
-    <script src="js/dashboard.js"></script>
+
+
+
+
+
+                        <script src="js/vanillaCalendar.js" type="text/javascript"></script>
+                        <script src="js/dashboard.js"></script>
 </body>
 
 </html>

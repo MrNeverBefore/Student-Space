@@ -575,7 +575,7 @@ router.get('/addresource', ensureAuthenticatedADMIN, (req, res) => {
 
 router.post('/addresource', (req, res) => {
 
-  const { resourceId, resourceTitle, resourceDesp, resourceDepartment, resourceLink, resourceSource, resourceAuthor } = req.body;
+  const { resourceId, resourceTitle, resourceDesp, resourceDepartment,resourceType, resourceLink, resourceSource, resourceAuthor } = req.body;
   console.log(req.body)
   let errors = [];
 
@@ -603,6 +603,7 @@ router.post('/addresource', (req, res) => {
           resourceLink,
           resourceAuthor,
           resourceDepartment,
+          resourceType,
           resourcePublishDate
         });
         newResource.save().then(user => {
@@ -625,7 +626,11 @@ router.post('/addresource', (req, res) => {
 
 
 router.get('/addexam', ensureAuthenticatedADMIN, (req, res) => {
-  res.render('addexam');
+  Subject.find({},(err,subject)=>{
+
+    res.render('addexam',{subject:subject});
+  })
+  
 
 });
 
@@ -644,7 +649,7 @@ router.post('/addexam', (req, res) => {
     console.log(errors)
     res.render('addexam');
   } else {
-    User.findOne({ examId: examId }).then(user => {
+    User.findOne({ examId: examId, batch }).then(user => {
       if (user) {
         errors.push({ msg: 'ID already exists' });
         console.log(errors)
@@ -755,10 +760,16 @@ router.get('/addmarks', ensureAuthenticatedADMIN, (req, res) => {
       res.render('/users/welcome');
     }
     else {
-
-      console.log(exam);
+      Batch.find({},(err,batch)=>{
+        if (err) {
+          res.render('/users/welcome');
+        }
+        else{
+          console.log(batch);
       var user = [];
-      res.render('addmarks', { exam: exam, user: user });
+      res.render('addmarks', { exam: exam, user: user,batch:batch });
+        }
+      })
     }
   })
 
@@ -767,6 +778,7 @@ router.get('/addmarks', ensureAuthenticatedADMIN, (req, res) => {
 
 router.post('/addmarks', (req, res) => {
   const examId = req.body.examId;
+  const batchId = req.body.batchId;
   console.log(examId);
   Exam.find({ examId: examId }, (err, exam) => {
 
@@ -775,26 +787,16 @@ router.post('/addmarks', (req, res) => {
     }
     else {
 
-      Batch.find({ exam: examId }, { batchId: 1, _id: 0 }, (err, batch) => {
-        if (err) {
-          res.render('/users/welcome');
-        }
-        else {
-          for (var i = 0; i < batch.length; i++) {
-            User.find({ batchId: batch[i].batchId }, (err, user) => {
-              if (err) {
-                res.redirect('/users/addmarks');
-              }
-              else {
-                console.log(exam);
-                res.render('addmarks', { exam: exam, user: user })
-              }
-            })
+      Batch.find({},(err,batch)=>{
+        User.find({ batchId:batchId }, (err, user) => {
+          if (err) {
+            res.redirect('/users/addmarks');
           }
-
-          console.log(batch);
-
-        }
+          else {
+            console.log(exam);
+            res.render('addmarks', { exam: exam, user: user,batch:batch })
+          }
+        })
       })
     }
   })
@@ -808,7 +810,7 @@ router.post('/savemarks', (req, res) => {
 
 
   const { examId, fullMarks, studentId, batchId, obtainMarks } = req.body;
-  console.log(req.body)
+  console.log(req.batchId)
   let errors = [];
 
   if (!examId || !fullMarks || !studentId || !batchId || !obtainMarks) {
@@ -819,7 +821,7 @@ router.post('/savemarks', (req, res) => {
     console.log(errors)
     res.redirect('/users/addmarks')
   } else {
-    Marks.findOne({ studentId: studentId }).then(user => {
+    Marks.findOne({ examId:examId,batchId:batchId[0] }).then(user => {
       if (user) {
         errors.push({ msg: 'ID already exists' });
         console.log(errors)
@@ -830,7 +832,7 @@ router.post('/savemarks', (req, res) => {
 
           examId,
           studentId,
-          batchId,
+          batchId:batchId[0],
           fullMarks,
           obtainMarks
         });
@@ -1061,7 +1063,6 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
     return
   } else {
-
     passport.authenticate('local', {
       successRedirect: '/dashboard',
       failureRedirect: '/',

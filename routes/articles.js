@@ -16,6 +16,7 @@ router.get('/edit/:id', ensureAuthenticated, async (req, res) => {
 router.get('/:slug',ensureAuthenticated, async (req, res) => {
   const article = await Article.findOne({ slug: req.params.slug })
   if (article == null) res.redirect('/')
+  console.log(article)
   res.render('articles/show', { article: article , user:req.user})
 })
 
@@ -26,9 +27,21 @@ router.post('/', async (req, res, next) => {
 }, saveArticleAndRedirect('new'))
 
 router.put('/:id', async (req, res, next) => {
+  console.log("im in thus")
   req.article = await Article.findById(req.params.id)
-  next()
-}, saveArticleAndRedirect('edit'))
+  console.log(req.article);
+  let article = req.article
+    article.author=req.body.userID
+    article.title = req.body.title
+    article.description = req.body.description
+    article.markdown = req.body.markdown
+    try {
+      article = await article.save()
+      res.redirect('/articles')
+    } catch (e) {
+      res.redirect('articles')
+    }
+})
 
 router.delete('/:id', async (req, res) => {
   await Article.findByIdAndDelete(req.params.id)
@@ -36,7 +49,7 @@ router.delete('/:id', async (req, res) => {
 })
 
 function saveArticleAndRedirect(path) {
-  
+  console.log(path)
   return async (req, res) => {
     let article = req.article
     article.author=req.body.userID
@@ -45,9 +58,9 @@ function saveArticleAndRedirect(path) {
     article.markdown = req.body.markdown
     try {
       article = await article.save()
-      res.redirect(`/articles/${article.slug}`,{ article: article , user:req.user})
+      res.redirect('articles')
     } catch (e) {
-      res.render(`articles/${path}`, { article: article, user:req.user })
+      res.redirect('articles')
     }
   }
 }

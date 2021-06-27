@@ -5,23 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Add the evo-calendar.css for styling -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
+
+<style>
+.out{
+    width:100%;
+    hight: 100%;
+    position: relative;
+}
+
+#calendar{
+    width:80%;
+    margin-top: 30px;
+    position: absolute;
+    top:30%;
+    left: 10%;
+}
+
+
+
+</style>
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="/CSS/dashboard.css">
-    <link rel="stylesheet" href="/CSS/theme.css">
+    <link rel="stylesheet" href="CSS/dashboard.css">
 
-
-  
-    <link href="CSS/vanillaCalendar.css" rel="stylesheet">
-
-
-
- <!-- -------------------------------------Chart Link    =====================================  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
-        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
-        crossorigin="anonymous"></script>
 
     <title>DSCSDEC</title>
 </head>
@@ -32,10 +42,10 @@
     <header class="header" id="header">
         <div class="header__toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
-            <span>Article</span>
+            <span>Events</span>
         </div>
 
-        
+
 
     </header>
     <!------------------------------------------------------- Header End ---------------------------------------------->
@@ -60,7 +70,7 @@
                         <span class="nav__name">Resources</span>
                     </a>
 
-                    <a href="/event" class="nav__link" title="Event">
+                    <a href="/event" class="nav__link active" title="Event">
                         <i class='bx bx-notification nav__icon'></i>
                         <span class="nav__name">Event</span>
                     </a>
@@ -74,7 +84,7 @@
                         <span class="nav__name">Acedmics</span>
                     </a>
 
-                    <a href="/articles" class="nav__link active" title="Articles">
+                    <a href="/articles" class="nav__link" title="Articles">
                         <i class='bx bx-book-content nav__icon'></i>
                         <span class="nav__name">Articles</span>
                     </a>
@@ -94,14 +104,78 @@
     </div>
     <!-- ----------------------------------------------End Nav Bar --------------------------------------------------------->
 
-  <div class="container" style="margin-top: 80px;">
-    <h1 class="mb-4">Edit Article</h1>
 
-    <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
-      <%- include('_form_fields') %>
-    </form>
-  </div>
-  <script src="js/dashboard.js"></script>
+
+
+            
+
+            <div class="out" style="margin-top: 100px;">
+                <div id="evoCalendar"></div>
+               </div>
+
+
+
+
+
+    <!--===== MAIN JS =====-->
+   
+        <!-- JavaScript -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Add jQuery library (required) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+<!-- Add the evo-calendar.js for.. obviously, functionality! -->
+<script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+<% var id=[]; var name=[] %>
+<% var date=[]; var description=[] %>
+<% for(var i=0;i<event.length;i++){ %>
+
+    <% id[i]=event[i].eventId %>
+        <% name[i]=event[i].eventTitle %>
+        <% date[i]=event[i].eventDate %>
+        <% description[i]=event[i].eventDesp %>
+
+            <% }%>
+
+
+<script>
+    const id ='<%= id %>'.split(',')
+    const name ='<%= name %>'.split(',')
+    const date ='<%= date %>'.split(',')
+    const description ='<%= description %>'.split(',')
+    var arr=[];
+    for(var i=0;i<id.length;i++)
+    {
+        var test={
+            id:id[i],
+            name:name[i],
+            date:date[i],
+            description:description[i],
+            type:"event"
+        }
+        arr[i]=test;
+    }
+    
+    
+</script>
+              
+        <script>
+            console.log(arr);
+          
+              $("#evoCalendar").evoCalendar({
+    calendarEvents: arr
+  });
+
+        </script>
+
+
+
+
+
+
+                    
+                        <script src="js/dashboard.js"></script>
 </body>
 
 </html>

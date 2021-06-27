@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+    <link rel="stylesheet" href="CSS/notice.css">
+
+
+
+    <link href="CSS/vanillaCalendar.css" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+   
+
+
+
+    <!-- -------------------------------------Chart Link    =====================================  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>DSCSDEC</title>
+</head>
+
+<body id="body-pd">
+
+    <!-- ================================================Header of the dashboard ------------------------------------->
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+            <span>Dashboard</span>
+        </div>
+
+
+
+    </header>
+    <!------------------------------------------------------- Header End ---------------------------------------------->
+
+    <!-- --------------------------------------------------Nav Bar ------------------------------------------------------>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="/" class="nav__logo" title="Dr. Sudhir Chandra Sur Degree Engineering College">
+                    <img src="images/logo.jpeg" class="main-logo">
+                    <span class="nav__logo-name">DSCSDEC</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="/dashboard" class="nav__link " title="Dashboard" type="submit">
+                        <i class='bx bx-home nav__icon'></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+
+                    <a href="/resource" class="nav__link" title="Resources">
+                        <i class='bx bx-book nav__icon'></i>
+                        <span class="nav__name">Resources</span>
+                    </a>
+
+                    <a href="/event" class="nav__link" title="Event">
+                        <i class='bx bx-notification nav__icon'></i>
+                        <span class="nav__name">Event</span>
+                    </a>
+                    <a href="/notice" class="nav__link active" title="Notice">
+                        <i class='bx bxs-news nav__icon'></i>
+                        <span class="nav__name">Notice</span>
+                    </a>
+
+                    <a href="/acedmics" class="nav__link" title="Acedmics">
+                        <i class='bx bx-book-reader nav__icon'></i>
+                        <span class="nav__name">Acedmics</span>
+                    </a>
+
+                    <a href="/articles" class="nav__link" title="Articles">
+                        <i class='bx bx-book-content nav__icon'></i>
+                        <span class="nav__name">Articles</span>
+                    </a>
+
+                    <a href="/thought" class="nav__link" title="Thought Wall">
+                        <i class='bx bx-bulb nav__icon'></i>
+                        <span class="nav__name">Thought Wall</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="/users/logout" class="nav__link" title="Log Out">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+    <!-- ----------------------------------------------End Nav Bar --------------------------------------------------------->
+
+
+   <% const col=["blue","green","yellow","brown","purpel","orange"]; %>
+
+            <div>
+            <section style="margin-top: 8%; margin-left: 10px; ">
+                <div class="row bootstrap snippets bootdeys">
+                    <% for(var i=0;i<notice.length;i++){  %>
+                    <div class="col-md-4 col-sm-6 content-card">
+                        <div class="card-big-shadow">
+                            <div class="card card-just-text" data-background="color" data-color="<%= col[(i+1)%7] %>" data-radius="none">
+                                <div class="content">
+                                    <h6 class="category"><%= notice[i].noticeId %></h6>
+                                    <h4 class="title"><%= notice[i].noticeTitle %></h4>
+                                    <p class="description"><%= notice[i].noticeDesp %> </p>
+                                </div>
+                            </div> <!-- end card -->
+                        </div>
+                    </div>
+                    <%}%>
+                    
+                    
+                </div>
+            </section>
+        </div>
+
+    
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row text-muted">
+                <div class="col-6 text-left">
+                    <p class="mb-0">
+                        <a href="index.html" class="text-muted"><strong>Rohit Shaw</strong></a> &copy;
+                    </p>
+                </div>
+                <!-- <div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div> -->
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!--===== MAIN JS =====-->
+
+
+       
+
+
+
+
+
+                       
+
+
+
+
+
+
+
+                        <script src="js/vanillaCalendar.js" type="text/javascript"></script>
+                        <script src="js/dashboard.js"></script>
+</body>
+
+</html>

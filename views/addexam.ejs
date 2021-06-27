@@ -22,7 +22,11 @@
           </div>
           <div class="input-box">
             <span class="details">Subject ID</span>
-            <input type="text" placeholder="Subject ID." name="subjectId" required>
+            <select name="subjectId">
+              <% for(var i=0;i<subject.length;i++){ %>
+              <option value="CSE"><%=subject[i].subjectId%></option>
+              <%}%>
+              </select>
           </div>
           <div class="input-box">
             <span class="details">Exam Date</span>

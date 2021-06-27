@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link href="CSS/theme.css" rel="stylesheet" media="all">
+
+
+
+    
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+
+
+<style>
+
+.card:not([class*=card-outline-]) {
+    border: 0;
+}
+.card {
+    height: 100%;
+    box-shadow: 0 9px 23px rgba(0, 0, 0, 0.09), 0 5px 5px rgba(0, 0, 0, 0.06) !important;
+    -webkit-transition: box-shadow 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    -moz-transition: box-shadow 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    -o-transition: box-shadow 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    transition: box-shadow 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    -webkit-border-radius: 0.4167rem;
+    -moz-border-radius: 0.4167rem;
+    -ms-border-radius: 0.4167rem;
+    -o-border-radius: 0.4167rem;
+    border-radius: 0.4167rem;
+}
+.blockquote {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+blockquote {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    border-left: .25rem solid #eceeef;
+}
+blockquote {
+    margin: 0 0 1rem;
+}
+.blockquote p {
+    font-size: 1.1rem;
+}
+.card .card-body p {
+    margin-bottom: 1rem;
+}
+
+/* Backgrounds */
+
+.bg-primary {
+    color: #FFFFFF;
+    background-color: #07a7e3 !important;
+}
+
+.bg-secondary {
+    color: #FFFFFF;
+    background-color: #4f5b60 !important;
+}
+
+.bg-success {
+    color: #FFFFFF;
+    background-color: #0ad251 !important;
+}
+
+.bg-info {
+    color: #FFFFFF;
+    background-color: #55d3f5 !important;
+}
+
+.bg-warning {
+    color: #ac9a02 !important;
+    background-color: #fce418 !important;
+}
+
+.bg-danger {
+    color: #FFFFFF;
+    background-color: #f43a59 !important;
+}
+
+.bg-dark {
+    background-color: #122f3b !important;
+}
+
+.bg-light {
+    background-color: #F7F7FA !important;
+}
+
+.bg-tranparent {
+    background-color: transparent !important;
+}
+
+.bg-dark *,
+.bg-danger *,
+.bg-warning *,
+.bg-info *,
+.bg-success *,
+.bg-secondary *,
+.bg-primary *,
+.bg-dark .batch-icon,
+.bg-danger .batch-icon,
+.bg-warning .batch-icon,
+.bg-info .batch-icon,
+.bg-success .batch-icon,
+.bg-secondary .batch-icon,
+.bg-primary .batch-icon {
+    color: #FFFFFF;
+}
+
+.bg-gradient [class^="card-"],
+.bg-gradient [class^="card-"] * {
+    color: #FFFFFF !important;
+}
+
+
+/* Highlight Colors - Bottom Border */
+
+.highlight-color-blue {
+    color: #FFFFFF !important;
+    background-color: #07a7e3 !important;
+}
+
+.highlight-color-green {
+    color: #FFFFFF !important;
+    background-color: #0ad251 !important;
+}
+
+.highlight-color-orange {
+    color: #FFFFFF !important;
+    background-color: #FC9131 !important;
+}
+
+.highlight-color-yellow {
+    color: #FFFFFF !important;
+    background-color: #F8D800 !important;
+}
+
+.highlight-color-red {
+    color: #FFFFFF !important;
+    background-color: #EA5455 !important;
+}
+
+.highlight-color-purple {
+    color: #FFFFFF !important;
+    background-color: #973999 !important;
+}
+
+.bg-gradient {
+    color: #FFFFFF !important;
+    background: #07a7e3;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #07a7e3 0%, #32dac3 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #07a7e3 0%, #32dac3 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr=$qp-color-1, endColorstr=$qp-color-2, GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+}
+
+.bg-gradient [class^="card-"],
+.bg-gradient [class^="card-"] * {
+    color: #FFFFFF !important;
+}
+
+.bg-secondary.bg-gradient {
+    color: #FFFFFF !important;
+    background: #4f5b60;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #4f5b60 0%, #97a9b2 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #4f5b60 0%, #97a9b2 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #4f5b60 0%, #97a9b2 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr=$qp-color-1, endColorstr=$qp-color-2, GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+}
+
+.bg-success.bg-gradient {
+    color: #FFFFFF !important;
+    background: #28C76F;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #28C76F 0%, #81FBB8 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #28C76F 0%, #81FBB8 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #28C76F 0%, #81FBB8 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr=$qp-color-1, endColorstr=$qp-color-2, GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+}
+
+.bg-info.bg-gradient {
+    color: #FFFFFF !important;
+    background: #3677FF;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #3677FF 0%, #FFD26F 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #3677FF 0%, #FFD26F 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #3677FF 0%, #FFD26F 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr=$qp-color-1, endColorstr=$qp-color-2, GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+}
+
+.bg-warning.bg-gradient {
+    color: #4f5b60 !important;
+    background: #FC9131;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #FC9131 0%, #FCCF31 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #FC9131 0%, #FCCF31 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #FC9131 0%, #FCCF31 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr=$qp-color-1, endColorstr=$qp-color-2, GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+}
+
+.bg-danger.bg-gradient {
+    color: #FFFFFF !important;
+    background: #EA5455;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #EA5455 0%, #FC9131 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #EA5455 0%, #FC9131 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #EA5455 0%, #FC9131 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr=$qp-color-1, endColorstr=$qp-color-2, GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+}
+</style>
+
+
+
+    <title>DSCSDEC</title>
+</head>
+
+<body id="body-pd">
+
+    <!-- ================================================Header of the dashboard ------------------------------------->
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+            <span>Dashboard</span>
+        </div>
+
+
+
+    </header>
+    <!------------------------------------------------------- Header End ---------------------------------------------->
+
+    <!-- --------------------------------------------------Nav Bar ------------------------------------------------------>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="/" class="nav__logo" title="Dr. Sudhir Chandra Sur Degree Engineering College">
+                    <img src="images/logo.jpeg" class="main-logo">
+                    <span class="nav__logo-name">DSCSDEC</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="/dashboard" class="nav__link" title="Dashboard" type="submit">
+                        <i class='bx bx-home nav__icon'></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+
+                    <a href="/resource" class="nav__link" title="Resources">
+                        <i class='bx bx-book nav__icon'></i>
+                        <span class="nav__name">Resources</span>
+                    </a>
+
+                    <a href="/event" class="nav__link" title="Event">
+                        <i class='bx bx-notification nav__icon'></i>
+                        <span class="nav__name">Event</span>
+                    </a>
+                    <a href="/notice" class="nav__link" title="Notice">
+                        <i class='bx bxs-news nav__icon'></i>
+                        <span class="nav__name">Notice</span>
+                    </a>
+
+                    <a href="/acedmics" class="nav__link" title="Acedmics">
+                        <i class='bx bx-book-reader nav__icon'></i>
+                        <span class="nav__name">Acedmics</span>
+                    </a>
+
+                    <a href="/articles" class="nav__link" title="Articles">
+                        <i class='bx bx-book-content nav__icon'></i>
+                        <span class="nav__name">Articles</span>
+                    </a>
+
+                    <a href="/thought" class="nav__link active" title="Thought Wall">
+                        <i class='bx bx-bulb nav__icon'></i>
+                        <span class="nav__name">Thought Wall</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="/users/logout" class="nav__link" title="Log Out">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+    <!-- ----------------------------------------------End Nav Bar --------------------------------------------------------->
+
+
+    <div class="main-frame">
+        <div class="main">
+
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+
+                        
+
+
+                        
+                        <div class="row">
+                            
+                                <!-- USER DATA-->
+                                
+                                    
+                                <form action="/managethought" method="POST"> 
+                                  
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="thought"></textarea>
+                                      </div>
+                                    <button type="submit" class="btn btn-primary" style=" margin-left: 50%; width: 100px; height: 40px; border-radius: 10px;">Submit</button>
+                                  </form>
+                                    
+                                
+                                <!-- END USER DATA-->
+                           
+                            
+                        </div>
+
+
+                        <% var col=["bg-primary","bg-secondary","bg-success","bg-info","bg-warning","bg-danger"] %>
+                        <div class="row">
+                            <h3 class="title-3 m-b-30">
+                                <i class="zmdi zmdi-account-calendar"></i>MyThought</h3>
+                            <div class="container">
+                                <div class="row mb-5">
+
+                                    <% for(var i=0;i<thought.length;i++){ %>
+                                    
+                                   <div class="col-md-4 mb-5">
+                                      <div class="card <%= col[(i+1)%6] %> mb-1 text-center">
+                                         <div class="card-body">
+                                            <blockquote class="blockquote">
+                                               <p><%= thought[i].thought %></p>
+                                               
+                                            </blockquote>
+                                            <span>Date : &nbsp;<%= thought[i].date.toString().substring(0,15) %></span>
+                                            <form action="/deletethought" method="POST">
+                                            <button style="background-color: #fff; color: #eb2727; width: 80px; height: 40px; border-radius: 15px; margin-top: 5px;" type="submit" name="id" value="<%= thought[i]._id %>">Delete</button>
+                                            </form>
+                                         </div>
+                                      </div>
+                                   </div>
+                                   
+                                   <%}%>
+                                   
+                                </div>
+                             </div>
+                        </div>
+
+
+                       
+                         
+                          
+
+			
+                    
+                   
+
+					
+
+				</div>
+			</main>
+
+			<footer class="footer" style="background-color: rgb(105, 138, 127); color: #fff;">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-left" >
+							<p class="mb-0" style="color: #fff;" >
+								<strong>Rohit Shaw</strong> &copy;
+							</p>
+						</div>
+						<!-- <div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div> -->
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+       </div> 
+       </div>
+    
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row text-muted">
+                <div class="col-6 text-left">
+                    <p class="mb-0">
+                        <a href="index.html" class="text-muted"><strong>Rohit Shaw</strong></a> &copy;
+                    </p>
+                </div>
+                <!-- <div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div> -->
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <!--===== MAIN JS =====-->
+
+
+
+
+
+
+                      
+
+
+
+
+
+
+
+                        <script src="js/dashboard.js"></script>
+</body>
+
+</html>

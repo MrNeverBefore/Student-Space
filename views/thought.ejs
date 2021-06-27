@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <title>DSCSDEC</title>
+
+    <style>
+        body {
+            background-color: #f7f7f7;
+            margin-top: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%236ba184' fill-opacity='0.21'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    
+    background-attachment: fixed;
+        }
+
+        .main-timeline {
+            position: relative
+        }
+
+        .maintemp{
+            
+            
+        }
+
+        .main-timeline:before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 100%;
+            background: #c6c6c6;
+            margin: 0 auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0
+        }
+
+        .main-timeline .timeline {
+            margin-bottom: 40px;
+            position: relative
+        }
+
+        .main-timeline .timeline:after {
+            content: "";
+            display: block;
+            clear: both
+        }
+
+        .main-timeline .icon {
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0
+        }
+
+        .main-timeline .icon:before,
+        .main-timeline .icon:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.33s ease-out 0s
+        }
+
+        .main-timeline .icon:before {
+            background: #fff;
+            border: 2px solid #232323;
+            left: -3px
+        }
+
+        .main-timeline .icon:after {
+            border: 2px solid #c6c6c6;
+            left: 3px
+        }
+
+        .main-timeline .timeline:hover .icon:before {
+            left: 3px
+        }
+
+        .main-timeline .timeline:hover .icon:after {
+            left: -3px
+        }
+
+        .main-timeline .date-content {
+            width: 50%;
+            float: left;
+            margin-top: 22px;
+            position: relative
+        }
+
+        .main-timeline .date-content:before {
+            content: "";
+            width: 36.5%;
+            height: 2px;
+            background: #c6c6c6;
+            margin: auto 0;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            bottom: 0
+        }
+
+        .main-timeline .date-outer {
+            width: 125px;
+            height: 125px;
+            font-size: 16px;
+            text-align: center;
+            margin: auto;
+            z-index: 1
+        }
+
+        .main-timeline .date-outer:before,
+        .main-timeline .date-outer:after {
+            content: "";
+            width: 125px;
+            height: 125px;
+            margin: 0 auto;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            transition: all 0.33s ease-out 0s
+        }
+
+        .main-timeline .date-outer:before {
+            background: #fff;
+            border: 2px solid #232323;
+            left: -6px
+        }
+
+        .main-timeline .date-outer:after {
+            border: 2px solid #c6c6c6;
+            left: 6px
+        }
+
+        .main-timeline .timeline:hover .date-outer:before {
+            left: 6px
+        }
+
+        .main-timeline .timeline:hover .date-outer:after {
+            left: -6px
+        }
+
+        .main-timeline .date {
+            width: 100%;
+            margin: auto;
+            position: absolute;
+            top: 27%;
+            left: 0
+        }
+
+        .main-timeline .month {
+            font-size: 18px;
+            font-weight: 700
+        }
+
+        .main-timeline .year {
+            display: block;
+            font-size: 30px;
+            font-weight: 700;
+            color: #232323;
+            line-height: 36px
+        }
+
+        .main-timeline .timeline-content {
+            width: 50%;
+            padding: 20px 0 20px 50px;
+            float: right
+        }
+
+        .main-timeline .title {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 24px;
+            margin: 0 0 15px 0
+        }
+
+        .main-timeline .description {
+            margin-bottom: 0
+        }
+
+        .main-timeline .timeline:nth-child(2n) .date-content {
+            float: right
+        }
+
+        .main-timeline .timeline:nth-child(2n) .date-content:before {
+            left: 10px
+        }
+
+        .main-timeline .timeline:nth-child(2n) .timeline-content {
+            padding: 20px 50px 20px 0;
+            text-align: right
+        }
+
+        @media only screen and (max-width: 991px) {
+            .main-timeline .date-content {
+                margin-top: 35px
+            }
+
+            .main-timeline .date-content:before {
+                width: 22.5%
+            }
+
+            .main-timeline .timeline-content {
+                padding: 10px 0 10px 30px
+            }
+
+            .main-timeline .title {
+                font-size: 17px
+            }
+
+            .main-timeline .timeline:nth-child(2n) .timeline-content {
+                padding: 10px 30px 10px 0
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .main-timeline:before {
+                margin: 0;
+                left: 7px
+            }
+
+            .main-timeline .timeline {
+                margin-bottom: 20px
+            }
+
+            .main-timeline .timeline:last-child {
+                margin-bottom: 0
+            }
+
+            .main-timeline .icon {
+                margin: auto 0
+            }
+
+            .main-timeline .date-content {
+                width: 95%;
+                float: right;
+                margin-top: 0
+            }
+
+            .main-timeline .date-content:before {
+                display: none
+            }
+
+            .main-timeline .date-outer {
+                width: 110px;
+                height: 110px
+            }
+
+            .main-timeline .date-outer:before,
+            .main-timeline .date-outer:after {
+                width: 110px;
+                height: 110px
+            }
+
+            .main-timeline .date {
+                top: 30%
+            }
+
+            .main-timeline .year {
+                font-size: 24px
+            }
+
+            .main-timeline .timeline-content,
+            .main-timeline .timeline:nth-child(2n) .timeline-content {
+                width: 95%;
+                text-align: center;
+                padding: 10px 0
+            }
+
+            .main-timeline .title {
+                margin-bottom: 10px
+            }
+        }
+
+        .feedback {
+    width: 220px;
+    height: 60px;
+  background-color : #31B0D5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border-color: #46b8da;
+}
+
+#mybutton {
+  position: fixed;
+  bottom: 4px;
+  left: 10%;
+  z-index: 30;
+}
+    </style>
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+            <span>Thought Wall</span>
+        </div>
+
+    
+
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="/" class="nav__logo" title="Dr. Sudhir Chandra Sur Degree Engineering College">
+                    <img src="images/logo.jpeg" class="main-logo">
+                    <span class="nav__logo-name">DSCSDEC</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="/dashboard" class="nav__link " title="Dashboard" type="submit">
+                        <i class='bx bx-home nav__icon'></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+
+                    <a href="/resource" class="nav__link" title="Resources">
+                        <i class='bx bx-book nav__icon'></i>
+                        <span class="nav__name">Resources</span>
+                    </a>
+
+                    <a href="/event" class="nav__link" title="event">
+                        <i class='bx bx-notification nav__icon'></i>
+                        <span class="nav__name">event</span>
+                        
+                    </a>
+
+                    <a href="/notice" class="nav__link" title="Notice">
+                        <i class='bx bxs-news nav__icon'></i>
+                        <span class="nav__name">Notice</span>
+                    </a>
+
+                    <a href="/acedmics" class="nav__link" title="Acedmics">
+                        <i class='bx bx-book-reader nav__icon'></i>
+                        <span class="nav__name">Acedmics</span>
+                    </a>
+
+                    <a href="/articles" class="nav__link" title="Articles">
+                        <i class='bx bx-book-content nav__icon'></i>
+                        <span class="nav__name">Articles</span>
+                    </a>
+
+                    <a href="/thought" class="nav__link active" title="Thought Wall">
+                        <i class='bx bx-bulb nav__icon'></i>
+                        <span class="nav__name">Thought Wall</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="/users/logout" class="nav__link" title="Log Out">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+  
+
+
+
+            <!-- List started here -->
+
+            <% var month=["JAN","FEB","MAR","APR","MAY","JUN","JULY","AUG","SEPT","OCT","NOV","DEC"] %>
+                    <div class="main-timeline maintemp" style="width: 100%; margin-top: 70px;">
+                    <% for(var i=thought.length-1;i>=0;i--){ %>
+                        <!-- start experience section-->
+                        <div class="timeline">
+                            <div class="icon"></div>
+                            <div class="date-content">
+                                <div class="date-outer">
+                                    <span class="date">
+                                        <span class="month"><%= month[thought[i].date.getMonth()] %>&nbsp;<%= thought[i].date.getDate() %></span>
+                                        <span class="year"><%= thought[i].date.getFullYear()%></span>
+                                        <span class="month"><%= thought[i].date.getHours() + " : " + thought[i].date.getMinutes()  %></span>
+                                        
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <h5 class="title"><%= thought[i].studentName %></h5>
+                                <p class="description">
+                                    <%= thought[i].thought %>
+                                </p>
+                                
+                            </div>
+                        </div>
+                        <!-- end experience section-->
+
+                        <%}%>
+
+                        
+                
+
+                        
+                        <div id="mybutton">
+                            <a href="/managethought"><button  class="feedback">My Thought</button></a>
+                            </div>
+
+                    </div>
+                
+            
+
+
+
+
+    <script src="js/dashboard.js"></script>
+    <!-- <script src="js/resource.js"></script> -->
+
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</body>
+
+</html>

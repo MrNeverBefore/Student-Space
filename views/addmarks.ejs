@@ -47,7 +47,19 @@
 
                         </select>
                       </div>
-                      
+                      <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                        <select
+                          class="form-control"
+                          id="exampleFormControlSelect1"
+                          name="batchId"
+                        >
+                          <option>batchId</option>
+                          <% for(var i=0;i<batch.length;i++){ %>
+                        <option><%= batch[i].batchId %></option>
+                            <%  }%>
+
+                        </select>
+                      </div>                      
                       
                       
 
